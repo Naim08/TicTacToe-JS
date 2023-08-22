@@ -9,4 +9,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const el = document.querySelector(".ttt");
   const view = new View(game, el);
   window.view = view;
+  window.game = game;
 });

@@ -18,7 +18,10 @@
 }
 
 .square {
+  display: flex;
   background-color: #eee;
+  width: 100px;
+  height: 100px;
   color: #444;
   border-radius: 5px;
   padding: 20px;
@@ -26,7 +29,10 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  align-items: center;
+  justify-content: center;
 }
+
 
 li {
   list-style-type: none;
@@ -38,4 +44,25 @@ li:hover {
 
 .click {
   background-color: yellow;
+}
+
+.x{
+  color: red;
+  text-align: center;
+}
+
+.o{
+  color: blue;
+  text-align: center;
+}
+
+.winner{
+  background-color: green;
+  color: white;
+
+}
+
+.tie{
+  background-color: white;
+  color: red;
 }

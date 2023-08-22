@@ -30,16 +30,38 @@ class View {
   }
 
   makeMove(square) {
-    const li_ele = e.target;
-    if (li_ele.classList.contains("square")) {
-      const data_pos = li_ele.dataset.pos.split(",").map(parseFloat);
+    if (square.classList.contains("square")) {
+      const data_pos = square.dataset.pos.split(",").map(parseFloat);
       console.log(data_pos);
+      const mark = this.game.currentPlayer;
       this.game.playMove(data_pos);
-      li_ele.classList.add("clicked");
+      square.innerHTML = mark;
+      square.classList.add(mark);
+      this.handleGameOver();
     }
   }
 
-  handleGameOver() {}
+  handleGameOver() {
+    if(this.game.isOver()){
+      //add new 
+      const p = document.createElement("h2");
+      if (this.game.winner()){
+        p.innerHTML = `"You win ${this.game.winner()}!"`;
+        const squares = document.querySelectorAll("." + this.game.winner());
+
+        squares.forEach(el=> el.classList.add("winner"));
+        console.log(squares);
+        // squares.classList.add("winner");
+      }else{
+        p.innerHTML = "Tie"
+        const squares = document.querySelectorAll(".square");
+        squares.forEach(el => el.classList.add("tie"));
+        
+      }
+      this.el.appendChild(p);
+    }
+
+  }
 }
 
 export default View;
