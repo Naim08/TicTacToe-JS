@@ -1,8 +1,10 @@
+
 class View {
   constructor(game, el) {
     this.game = game;
     this.el = el;
     this.setupBoard();
+    this.el.addEventListener("click",this.handleClick.bind(this));
   }
 
   // setup html view of board, 3X3 tictactoe board
@@ -20,7 +22,17 @@ class View {
     this.el.appendChild(ul);
   }
 
-  handleClick(e) {}
+  handleClick(e) {
+    // console.log(e.target);
+    const li_ele = e.target;
+    if (li_ele.classList.contains("square")){
+      const data_pos = li_ele.dataset.pos.split(",").map(parseFloat);
+      console.log(data_pos);
+      this.game.playMove(data_pos);
+    
+
+    }
+  }
 
   makeMove(square) {}
 
