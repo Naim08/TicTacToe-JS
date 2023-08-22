@@ -32,6 +32,10 @@ li {
   list-style-type: none;
 }
 
-li:hover{
+li:hover {
+  background-color: yellow;
+}
+
+.click {
   background-color: yellow;
 }
